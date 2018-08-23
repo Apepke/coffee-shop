@@ -1,0 +1,29 @@
+<div class="column is-one-quarter">
+	<nav class="panel">
+		<p class="panel-heading">Profile</p>
+		<div class="panel-block">
+			<article class="media">
+				<div class="media-left">
+					<figure class="image is-64x64">
+						<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+					</figure>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<p>
+							<strong><%= current_user.name %></strong><br />
+							<small><%= current_user.username %></small>
+						</p>
+					</div>
+				</div>
+			</article>
+		</div>
+	</nav>
+	<strong><%= current_user.company_name %></strong><br />
+</div>
+<div class= "Company-Name" />
+	<%= simple_form_for(@user=current_user) do |f| %>
+	<%=f.text_field :company_name, placeholder: "Company Name" %>
+      <%= f.submit "Update Company Name", :class => "btn1", :title => "Button" %>
+        <% end %>
+    </div>

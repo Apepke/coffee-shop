@@ -1,0 +1,55 @@
+<th><b>Favorite Order: </b></th>
+     <% @full_orders.each do |full_order| %>
+    <td><%= full_order.favorite_order %></td>
+      <% end %>
+    <%= simple_form_for(@full_order = FullOrder.new) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :fullorder, :value => @full_order.favorite_order %>
+    <%= f.submit "Place Favorite Order", :class => "btn1", :title => "Button" %>
+    <% end %>
+   <div>
+    <%= link_to 'Back', root_path %>
+  </div>
+<table>
+  <%= form_tag full_orders_path , :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search by Company" %>
+  <% end %>
+  <thead>
+    <tr>
+      <th colspan="3">Orders Placed: </th>
+    </tr>
+  </thead>
+<table class="drinks">
+  <tbody>
+    <% @full_orders.each do |full_order| %>
+      <tr>
+        <td><b><%= "Company Name: " %><b></td>      
+         <td><%= full_order.order_company_name %></td>
+        <td><b><%= "Order Status: " %></b></td>      
+         <td><%= full_order.order_status %></td>
+        <td><%= full_order.fullorder %></td>
+        <div class="divider"/>
+        <td><%= link_to 'View Order', full_order %></td>
+      </div>
+        <div class="divider"/>
+        <td><%= link_to 'Delete Order', full_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+        <td>
+        <%= simple_form_for(full_order) do |f| %>
+        <%= f.select :order_status, ['In Progress', 'Canceled', 'Completed']%><br />
+      <%= f.submit "Update Status", :class => "btn2", :title => "Button" %>
+        <% end %>
+         <%= simple_form_for(full_order) do |f| %>
+       <%= f.hidden_field :favorite_order , :value => full_order.fullorder %>
+      <%= f.submit "Favorite Order", :class => "btn2", :title => "Button" %>
+        <% end %>
+      </td>
+      </tr>
+    <% end %>
+  </div>
+</table>
+  </tbody>
+</table>
+<br>
+

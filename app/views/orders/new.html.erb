@@ -1,0 +1,33 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+    	<% if user_signed_in? %>
+    		<%= render 'profile' %><hr>
+    	</div>
+    </div>
+    <% end %>
+
+  <% if user_signed_in? %>
+	<article class="media box">
+		<figure class="media-left">
+			<p class="image is-64x64">
+			</p>
+		</figure>
+		<div class="media-content">
+	<%= render 'form', order: @order %>	
+	</div>
+	</article>
+  <% end %>
+<div class="panel panel-default">
+    <div class="panel-body">
+      <h4>Pending Orders:</h4>
+      <ul id="users">
+<%= render 'orders/index', :orders => @orders = Order.all %>
+</ul>
+      <div data-coffee-order="checklist">
+      </div>
+   
+
+
+
+

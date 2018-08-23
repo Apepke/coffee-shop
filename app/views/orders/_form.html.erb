@@ -1,0 +1,32 @@
+<%= simple_form_for(@order) do |f| %>
+<%= f.error_notification %>
+<div class="field">
+Drink: <%= f.select :drink, ['Coffee', 'Orange Juice', 'Tea'], {},:selected => 'Coffee', :id => "extended_list"  %><br />
+</div>
+<div id="js-coffee-type" class="d-none1">Coffee Type: <%= f.select :coffee_type, ['Espresso', 'Cappuccino', 'Filter', 'Greek', 'Frappe', 'Latte'] %></div>
+<div id="js-coffee-type1" class="d-none2">Sugar Amount: <%= f.select :sugar_amount, ((1..5).map {|i| [i,i] } << ["None",nil]) %><br /></div>
+<div id="js-coffee-type2" class="d-none3">Milk Amount: <%= f.select :milk_amount, ((1..5).map {|i| [i,i] } << ["None",nil]) %><br />
+</div>
+  <%= f.button :submit, class: "button is-info" %>
+  <% end %>
+    <style>
+    .d-none { display: none; }
+    </style>
+<script>
+    $("#extended_list").change(function() {
+      var drink = $("#extended_list").val();
+      if (drink == 'Orange Juice') {
+    $("#js-coffee-type").addClass("d-none");
+    $("#js-coffee-type1").addClass("d-none");
+    $("#js-coffee-type2").addClass("d-none");
+    } else if (drink == 'Tea'){
+    $("#js-coffee-type").addClass("d-none");
+    $("#js-coffee-type1").removeClass("d-none");
+    $("#js-coffee-type2").removeClass("d-none"); 
+    } else {
+    $("#js-coffee-type").removeClass("d-none");
+    $("#js-coffee-type1").removeClass("d-none");
+    $("#js-coffee-type2").removeClass("d-none");
+     }
+    });
+    </script>

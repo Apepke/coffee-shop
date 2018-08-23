@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drink: MyString
+  coffee-type: MyString
+  milk_amount: 1
+  sugar_amount: 1
+
+two:
+  drink: MyString
+  coffee-type: MyString
+  milk_amount: 1
+  sugar_amount: 1

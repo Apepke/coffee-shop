@@ -1,0 +1,46 @@
+<table class="drinks">
+  <thead>
+    <tr>
+      <th>Drink</th>
+      <th>Coffee type</th>
+      <th>Milk amount</th>
+      <th>Sugar amount</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+       <tr>
+        <% if order.drink == "Orange Juice" %>
+       <td><%= order.drink %></td>
+       <td><%= @order.coffee_type = "N/A" %></td>
+       <td><%= @order.milk_amount = 0 %></td>
+       <td><%= @order.sugar_amount = 0 %></td>
+        <% elsif order.drink == "Tea" %>
+       <td><%= order.drink %></td>
+       <td><%= order.coffee_type = "N/A" %></td>
+       <td><%= order.milk_amount %></td>
+       <td><%= order.sugar_amount %></td>
+        <% elsif order.drink == "Coffee" %>
+        <td><%= order.drink %></td>
+        <td><%= order.coffee_type %></td>
+        <td><%= order.milk_amount %></td>
+        <td><%= order.sugar_amount %></td>
+          <% end %>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Delete Item', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+<%= simple_form_for(@full_order = FullOrder.new) do |f| %>
+<%= f.error_notification %>
+<%= f.hidden_field :fullorder, :value => @full_order.fullorder %>
+<%= f.submit "Place Order", :class => "btn1", :title => "Button" %>
+<% end %>
+<td><%= link_to 'View Orders', full_orders_path %></td>
+

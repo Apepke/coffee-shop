@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Drink:</strong>
+  <%= @order.drink %>
+</p>
+
+<p>
+  <strong>Coffee type:</strong>
+  <%= @order.coffee_type %>
+</p>
+
+<p>
+  <strong>Milk amount:</strong>
+  <%= @order.milk_amount %>
+</p>
+
+<p>
+  <strong>Sugar amount:</strong>
+  <%= @order.sugar_amount %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
