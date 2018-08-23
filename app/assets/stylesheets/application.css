@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import "bulma";
+@import 'bulma/sass/utilities/_all.sass'
 /* navbar */
 .bg-company-red {
     background-color: darkred;
@@ -66,4 +66,8 @@ display-none{
 }
 th { 
     text-align: center; /* Or right or left */
+}
+img.center {
+    display: block;
+    margin: 0 auto;
 }
