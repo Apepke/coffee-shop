@@ -9,9 +9,6 @@ Drink: <%= f.select :drink, ['Coffee', 'Orange Juice', 'Tea'], {},:selected => '
 </div>
   <%= f.button :submit, class: "button is-info" %>
   <% end %>
-    <style>
-    .d-none { display: none; }
-    </style>
 <script>
     $("#extended_list").change(function() {
       var drink = $("#extended_list").val();
