@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rejected-order:</strong>
+  <%= @rejectedorder.rejected-order %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @rejectedorder.comment %>
+</p>
+
+<%= link_to 'Edit', edit_rejectedorder_path(@rejectedorder) %> |
+<%= link_to 'Back', rejectedorders_path %>

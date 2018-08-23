@@ -18,9 +18,20 @@
 	</div>
 	</article>
   <% end %>
+      <% @rejectedorders = Rejectedorder.all %>
+      <% @rejectedorders.each do | rejectedorder | %>
+        <th><b> Rejected Order: </b></th>
+      <td><%= rejectedorder.rejected_order %></td>
+      <td> Comment: </td>
+       <td><%= rejectedorder.comment %></td>
+ <% end %>
+<% @rejectedorders = Rejectedorder.all %>
+      <% @rejectedorders.each do | rejectedorder | %>
+        <% @rejectedorders.each(&:destroy) %>
+       <% end %>
 <div class="panel panel-default">
     <div class="panel-body">
-      <h4>Pending Orders:</h4>
+      <h4><b>Pending Orders:</b></h4>
       <ul id="users">
 <%= render 'orders/index', :orders => @orders = Order.all %>
 </ul>

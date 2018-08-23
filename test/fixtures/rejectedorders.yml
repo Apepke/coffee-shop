@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rejected-order: MyString
+  comment: MyString
+
+two:
+  rejected-order: MyString
+  comment: MyString
