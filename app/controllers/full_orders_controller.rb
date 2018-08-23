@@ -89,12 +89,9 @@ end
   # DELETE /full_orders/1
   # DELETE /full_orders/1.json
   def destroy
-    @orders.each do |order| 
-      @orders.each(&:destroy)
-      end
     @full_order.destroy
     respond_to do |format|
-      format.html { redirect_to full_orders_url, notice: 'Full order was successfully destroyed.' }
+      format.html { redirect_to full_orders_path, notice: 'Full order was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
