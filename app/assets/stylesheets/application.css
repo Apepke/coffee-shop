@@ -14,7 +14,7 @@
  *= require_self
  */
 
-
+@import "bulma";
 /* navbar */
 .bg-company-red {
     background-color: darkred;
@@ -54,7 +54,7 @@ display-none{
 }
 .btn1{
   color: black;
-  width: 150px;
+  width: 50px;
   height: 200px;
   /*add any other properties you want to style*/
 }
@@ -76,4 +76,3 @@ img {
     margin-right: auto;
     width: 40%;
 }
- .d-none { display: none; }
