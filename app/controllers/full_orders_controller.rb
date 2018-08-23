@@ -24,11 +24,12 @@ class FullOrdersController < ApplicationController
   # POST /full_orders.json
   def create
     @orders = Order.all
+    @user=current_user
     if @orders.blank?
     else
     @full_order = FullOrder.new(full_order_params)
     @full_order.fullorder=""
-    @full_order.order_company_name = ""
+    @full_order.order_company_name = @user.company_name
     @full_order.order_status = "In Progress"
     @orders.each do |order| 
     if order.drink == "Coffee"
