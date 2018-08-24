@@ -28,9 +28,8 @@ class FullOrdersController < ApplicationController
     if @orders.blank?
     else
     @full_order = FullOrder.new(full_order_params)
-    @full_order.fullorder=""
-    @full_order.order_company_name = @user.company_name
     @full_order.order_status = "In Progress"
+    @full_order.order_company_name = @user.company_name
     @orders.each do |order| 
     if order.drink == "Coffee"
     @full_order.fullorder << "[ "
@@ -105,6 +104,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def full_order_params
-      params.require(:full_order).permit(:fullorder, :order_status , :favorite_order, :order_company_name )
+      params.require(:full_order).permit(:fullorder, :order_status , :favorite_order , :order_company_name )
    end
 end
+

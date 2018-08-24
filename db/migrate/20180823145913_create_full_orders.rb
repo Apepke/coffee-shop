@@ -4,7 +4,6 @@ class CreateFullOrders < ActiveRecord::Migration[5.2]
       t.string :fullorder
       t.string :order_status
       t.string :favorite_order
-      t.string :rejected_order
       t.string :order_company_name
       t.timestamps
     end
