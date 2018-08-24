@@ -104,7 +104,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def full_order_params
-      params.require(:full_order).permit(:fullorder, :order_status , :favorite_order , :order_company_name )
+      params.require(:full_order).permit(:fullorder, :order_status , :order_company_name )
    end
 end
 

@@ -1,10 +1,8 @@
 <th><b>Favorite Order: </b></th>
-     <% @full_orders.each do |full_order| %>
-    <td><%= full_order.favorite_order %></td>
-      <% end %>
-    <%= simple_form_for(@full_order = FullOrder.new) do |f| %>
+    <td><%= current_user.favorite_order %></td>
+    <%= simple_form_for(@fullorder=FullOrder.new) do |f| %>
     <%= f.error_notification %>
-    <%= f.hidden_field :fullorder, :value => @full_order.favorite_order %>
+    <%= f.hidden_field :fullorder, :value => current_user.favorite_order %>
     <%= f.submit "Place Favorite Order", :class => "btn1", :title => "Button" %>
     <% end %>
    <div>
@@ -40,7 +38,7 @@
         <%= f.select :order_status, ['In Progress', 'Canceled', 'Completed']%><br />
       <%= f.submit "Update Status", :class => "btn2", :title => "Button" %>
         <% end %>
-         <%= simple_form_for(full_order) do |f| %>
+         <%= simple_form_for(@user=current_user) do |f| %>
        <%= f.hidden_field :favorite_order , :value => full_order.fullorder %>
       <%= f.submit "Favorite Order", :class => "btn2", :title => "Button" %>
         <% end %>
