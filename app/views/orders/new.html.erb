@@ -25,6 +25,8 @@
       <td> Comment: </td>
        <td><%= rejectedorder.comment %></td>
  <% end %>
+ <th><b>Favorite Order: </b></th>
+    <td><%= current_user.favorite_order %></td>
 <% @rejectedorders = Rejectedorder.all %>
       <% @rejectedorders.each do | rejectedorder | %>
         <% @rejectedorders.each(&:destroy) %>
