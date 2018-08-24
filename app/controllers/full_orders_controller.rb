@@ -25,11 +25,11 @@ class FullOrdersController < ApplicationController
   def create
     @orders = Order.all
     @user=current_user
-    if @orders.blank?
-    else
     @full_order = FullOrder.new(full_order_params)
     @full_order.order_status = "In Progress"
     @full_order.order_company_name = @user.company_name
+    if @orders.blank?
+    else
     @orders.each do |order| 
     if order.drink == "Coffee"
     @full_order.fullorder << "[ "
@@ -60,6 +60,7 @@ class FullOrdersController < ApplicationController
     @orders.each(&:destroy)
    end
  end
+   end
     respond_to do |format|
       if @full_order.save
         format.html { redirect_to full_orders_path, notice: 'Full order was successfully created.' }
@@ -69,7 +70,6 @@ class FullOrdersController < ApplicationController
         format.json { render json: @full_order.errors, status: :unprocessable_entity }
       end
     end
-  end
 end
 
   # PATCH/PUT /full_orders/1

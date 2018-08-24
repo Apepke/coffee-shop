@@ -46,6 +46,13 @@
 <% end %>
 </div>
 <div>
+   <%= simple_form_for(@fullorder=FullOrder.new) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :fullorder, :value => current_user.favorite_order %>
+    <%= f.submit "Place Favorite Order", :class => "btn1", :title => "Button" %>
+    <% end %>
+  </div>
+<div>
 <%= simple_form_for(@rejectedorder = Rejectedorder.new) do |f| %>
 <%= f.error_notification %>
 <%= f.hidden_field :rejected_order, :value => @rejectedorder.rejected_order %>
